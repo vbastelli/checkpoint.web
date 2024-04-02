@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinharia Agnello</title>
+    <style>
+        h1 {
+            color: white;
+            text-align: center;
+            text-shadow: 2px 2px 2px black;
+            font-size: 65px;
+        }
+
+        button#botao {
+            transform: translate(520%, 10%);
+        }
+
+        button#outroBotao {
+            transform: translate(440%, 10%);
+        }
+        body {
+            background-color: rgb(143, 27, 27);
+        }
+    </style>
+</head>
+<body>
+    <h1>Vinharia Agnello</h1>
+    <fieldset>
+        <button id="outroBotao" onclick="adicionar_vinhos()">Adicionar Vinho</button>
+        <button id="botao" onclick="mostrarVinhos()">Mostrar Vinho</button>
+    </fieldset>
+    <script>
+        const vinhos = [];
+
+        function adicionar_vinhos() {
+            var nome = prompt('Qual o nome do vinho?:');
+            var tipo = prompt("Qual o tipo do vinho?:");
+            var safra = prompt('De quando é a safra?:');
+            var preco = prompt('Qual o preço?:');
+
+            var vinho = {
+                nome: nome,
+                tipo: tipo,
+                safra: safra,
+                preco: preco,
+            };
+            vinhos.push(vinho);
+            alert('Vinho adicionado com sucesso!');
+        }
+
+        function mostrarVinhos() {
+            document.write("<h2>Vinhos adicionados:</h2>");
+            for (var i = 0; i < vinhos.length; i++) {
+                document.write("Nome: " + vinhos[i].nome +  "<br>");
+                document.write("Tipo: " + vinhos[i].tipo + "<br>");
+                document.write("Safra: " + vinhos[i].safra + "<br>");
+                document.write("Preço: " + vinhos[i].preco + 'R$' + "<br><br>");
+            }
+        }
+    </script>
+</body>
+</html>
