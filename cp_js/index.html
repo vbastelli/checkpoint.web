@@ -22,6 +22,10 @@
         body {
             background-color: rgb(143, 27, 27);
         }
+        #vinhosContainer {
+            margin-top: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -30,6 +34,7 @@
         <button id="outroBotao" onclick="adicionar_vinhos()">Adicionar Vinho</button>
         <button id="botao" onclick="mostrarVinhos()">Mostrar Vinho</button>
     </fieldset>
+    <div id="vinhosContainer"></div>
     <script>
         const vinhos = [];
 
@@ -50,12 +55,14 @@
         }
 
         function mostrarVinhos() {
-            document.write("<h2>Vinhos adicionados:</h2>");
+            var vinhosContainer = document.getElementById('vinhosContainer');
+            vinhosContainer.innerHTML = "<h2>Vinhos adicionados:</h2>";
             for (var i = 0; i < vinhos.length; i++) {
-                document.write("Nome: " + vinhos[i].nome +  "<br>");
-                document.write("Tipo: " + vinhos[i].tipo + "<br>");
-                document.write("Safra: " + vinhos[i].safra + "<br>");
-                document.write("Preço: " + vinhos[i].preco + 'R$' + "<br><br>");
+                var vinhoInfo = "<p>Nome: " + vinhos[i].nome + "<br>" +
+                                "Tipo: " + vinhos[i].tipo + "<br>" +
+                                "Safra: " + vinhos[i].safra + "<br>" +
+                                "Preço: " + vinhos[i].preco + ' R$</p>';
+                vinhosContainer.innerHTML += vinhoInfo;
             }
         }
     </script>
